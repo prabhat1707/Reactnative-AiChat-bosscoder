@@ -1,0 +1,41 @@
+import React, { FC } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { colors } from '../styles/colors';
+import TypingEffect from './TypingEffect';
+
+interface ISentMessageCard {
+    message: string
+}
+
+
+const ResponseMessageCard: FC<ISentMessageCard> = ({message}) => {
+
+
+      return (
+            <View style={styles.container}>
+                  <View style={styles.messageContainer}>
+                        <TypingEffect text={message} style={styles.textMessage}/>
+                  </View>
+            </View>
+      );
+}
+
+const styles = StyleSheet.create({
+      container: {
+            flexDirection: "row",
+            marginVertical:8
+      },
+      messageContainer: {
+            maxWidth: "80%",
+            backgroundColor: colors.black,
+            borderRadius: 20,
+            padding:10
+      },
+      textMessage: {
+            color: colors.white,
+            fontSize: 16
+
+      }
+});
+
+export default ResponseMessageCard
